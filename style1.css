@@ -1,0 +1,152 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #d1b065; /* Updated background color */
+    color: #333;
+}
+
+/* Make header float while scrolling */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it stays above other elements */
+    background-color: #2C2B2C; /* Updated header background color to match body */
+    color: white;
+    padding: 1%;
+    text-align: justify;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h1 {
+    margin: 0;
+    color: #fff; /* Updated title color to Tricon black */
+    font-size: xx-large;
+    font-weight: 200;
+    text-align: center;
+}
+
+/* Add margin-top to main content to prevent it from being hidden behind the fixed header */
+main {
+    padding: 1rem;
+    margin-top: 70px; /* Adjust based on header height */
+}
+
+.gallery {
+    position: relative; /* Added for button positioning */
+}
+
+.slider-container {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.cert-list {
+    display: flex;
+    flex-wrap: wrap; /* Add this to allow certificates to wrap to the next row */
+    gap: 20px;
+    justify-content: center; /* Center align the certificates */
+}
+
+.cert {
+    min-width: calc((100% - 50px) / 4); /* Calculate the width of each certificate */
+    max-width: calc((100% - 50px) / 4); /* Calculate the width of each certificate */
+    padding: 20px;
+    border: 1px solid #ccc;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #f5d68f; /* Updated certificate background color */
+    position: relative;
+    transition: box-shadow 0.3s, transform 0.3s;
+    scroll-snap-align: start;
+}
+
+/* Hover effect for certificate */
+.cert:hover {
+    transform: translateY(-10px); /* Slightly lift the certificate */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Add shadow effect */
+}
+
+.cert img {
+    width: 100%;
+    border-radius: 10px;
+    max-height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s, box-shadow 0.3s; /* Add transition for transform and box-shadow */
+}
+
+.cert:hover img {
+    transform: scale(1.1); /* Expand the image on hover */
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.6); /* Add glow effect */
+}
+
+.cert .list {
+    margin-top: 20px;
+}
+
+.cert a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    color: white;
+    background-color: #d1b065; /* Updated link background color */
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.cert a:hover {
+    background-color: #b89d4f; /* Slightly darker shade for hover effect */
+}
+
+.cert .fa-certificate {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.cert .fa-certificate:hover {
+    color: #f5d68f; /* Updated hover color */
+}
+
+footer {
+    background-color: #d1b065; /* Updated footer background color */
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+}
+
+button.prev,
+button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #d1b065; /* Updated button background color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+}
+
+button.prev {
+    left: 0;
+}
+
+button.next {
+    right: 0;
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        text-align: center; /* Center align the header text on smaller screens */
+    }
+
+    .cert {
+        min-width: 100%; /* Make certificates full-width on smaller screens */
+        max-width: 100%; /* Make certificates full-width on smaller screens */
+    }
+}
